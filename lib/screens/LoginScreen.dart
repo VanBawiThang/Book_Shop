@@ -1,9 +1,10 @@
-import 'package:book_shop/RegisterScreen.dart';
+import 'package:book_shop/screens/RegisterScreen.dart';
 import 'package:book_shop/constants.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatefulWidget {
+  static const routeName = '/Login';
   @override
   _LoginPageState createState() => _LoginPageState();
 }

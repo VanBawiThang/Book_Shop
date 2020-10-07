@@ -1,9 +1,10 @@
-import 'package:book_shop/LoginScreen.dart';
+import 'package:book_shop/screens/LoginScreen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'constants.dart';
+import '../constants.dart';
 
 class RegisterScreen extends StatefulWidget {
+  static const routeName = '/Register';
   @override
   _RegisterScreenState createState() => _RegisterScreenState();
 }
@@ -13,36 +14,36 @@ class _RegisterScreenState extends State<RegisterScreen> {
   Widget _buildButton() {
     return Center(
         child: Column(
-      children: <Widget>[
-        RaisedButton(
-          onPressed: () {},
-          textColor: Colors.white,
-          padding: const EdgeInsets.all(0.0),
-          child: Container(
-            decoration: const BoxDecoration(
-              gradient: LinearGradient(
-                colors: <Color>[
+          children: <Widget>[
+            RaisedButton(
+              onPressed: () {},
+              textColor: Colors.white,
+              padding: const EdgeInsets.all(0.0),
+                child: Container(
+                  decoration: const BoxDecoration(
+                  gradient: LinearGradient(
+                  colors: <Color>[
                   Color(0xFF0D47A1),
                   Color(0xFF1976D2),
-                ],
-              ),
-            ),
-            padding: const EdgeInsets.symmetric(horizontal: 100, vertical: 10),
-            child: const Text('Register', style: TextStyle(fontSize: 20,)),
+                  ],
+                  ),
+                  ),
+                padding: const EdgeInsets.symmetric(horizontal: 100, vertical: 10),
+                  child: const Text('Register', style: TextStyle(fontSize: 20,)),
+                ),
           ),
-        ),
-        Row(
-          children: <Widget>[
-            Container(
-              padding: EdgeInsets.fromLTRB(80, 0, 0, 0),
-              child: Text("Already have an account?"),
-            ),
-            FlatButton(
+            Row(
+              children: <Widget>[
+              Container(
+                padding: EdgeInsets.fromLTRB(80, 0, 0, 0),
+                child: Text("Already have an account?"),
+              ),
+              FlatButton(
               onPressed: () {
                 Navigator.push(context,
                     MaterialPageRoute(builder: (context) => LoginPage()));
-              },
-              child: Text("Sing In"),
+                },
+                child: Text("Sign In"),
             )
           ],
         )
@@ -67,50 +68,56 @@ class _RegisterScreenState extends State<RegisterScreen> {
   }
 
   Widget _buildContainer() {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: <Widget>[
-        ClipRRect(
-          borderRadius: BorderRadius.all(
-            Radius.circular(20),
-          ),
-          child: Container(
-            height: MediaQuery.of(context).size.height * 0.6,
-            width: MediaQuery.of(context).size.width * 0.8,
-            decoration: BoxDecoration(
-              color: Colors.white,
+
+    return 
+      SingleChildScrollView(
+        child: Row (
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          ClipRRect(
+            borderRadius: BorderRadius.all(
+              Radius.circular(20),
             ),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: <Widget>[
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    Text(
-                      "Register",
-                      style: TextStyle(
-                        fontWeight: FontWeight.w500,
-                        fontSize: MediaQuery.of(context).size.height / 25,
-                        color: Color(0xff2470c7),
+            child: Container(
+              height: MediaQuery.of(context).size.height * 0.6,
+              width: MediaQuery.of(context).size.width * 0.8,
+              decoration: BoxDecoration(
+                color: Colors.white,
+              ),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: <Widget>[
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Text(
+                        "Register",
+                        style: TextStyle(
+                          fontWeight: FontWeight.w500,
+                          fontSize: MediaQuery.of(context).size.height / 25,
+                          color: Color(0xff2470c7),
+                        ),
                       ),
-                    ),
-                  ],
-                ),
-                Container(
-                  height: 15,
-                ),
-                _buildUserNameRow(),
-                _buildEmailRow(),
-                _buildPasswordRow(),
-                _buildPhoneNumberRow(),
-                _buildAddressRow(),
-              ],
+                    ],
+                  ),
+                  Container(
+                    height: 15,
+                  ),
+                    
+                    _buildUserNameRow(),
+                    _buildEmailRow(),
+                    _buildPasswordRow(),
+                    _buildPhoneNumberRow(),
+                    _buildAddressRow(),
+                  
+                ],
+              ),
             ),
-          ),
-        )
-      ],
-    );
+          )
+        ],
+    ),
+      );
   }
 
   Widget _buildEmailRow() {
@@ -136,7 +143,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
   Widget _buildUserNameRow() {
     return Padding(
-      padding: EdgeInsets.fromLTRB(10, 10, 20, 10),
+      padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
       child: TextFormField(
         keyboardType: TextInputType.text,
         onChanged: (value) {
@@ -224,29 +231,29 @@ class _RegisterScreenState extends State<RegisterScreen> {
     return SafeArea(
       child: Scaffold(
           backgroundColor: Color(0xffd6d6d6),
-          body: SingleChildScrollView(
-            child: Stack(
-              children: <Widget>[
-                SizedBox(
-                  height: 15,
+          body: Stack (
+            children: <Widget>[
+              SizedBox(
+                height: 5,
+              ),
+              Container(
+                height: MediaQuery.of(context).size.height * 0.7,
+                width: MediaQuery.of(context).size.width,
+                child: Container(
+                  decoration: BoxDecoration(
+                      color: Color(0xff2470c7),
+                      borderRadius: BorderRadius.only(
+                        bottomLeft: const Radius.circular(70),
+                        bottomRight: const Radius.circular(70),
+                      )),
                 ),
-                Container(
-                  height: MediaQuery.of(context).size.height * 0.7,
-                  width: MediaQuery.of(context).size.width,
-                  child: Container(
-                    decoration: BoxDecoration(
-                        color: Color(0xff2470c7),
-                        borderRadius: BorderRadius.only(
-                          bottomLeft: const Radius.circular(70),
-                          bottomRight: const Radius.circular(70),
-                        )),
-                  ),
-                ),
-                Column(
+              ),
+              SingleChildScrollView (
+                child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
                     Container(
-                      height: 120,
+                      height: 20,
                     ),
                     _buildLogo(),
                     Container(
@@ -259,8 +266,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     _buildButton(),
                   ],
                 )
-              ],
-            ),
+              )
+            ],
           )),
     );
   }
